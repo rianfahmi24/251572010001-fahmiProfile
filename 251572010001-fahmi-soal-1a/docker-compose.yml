@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      # Di sinilah kita meng-inject data personal untuk menggantikan PLACEHOLDER
+      args:
+        - NAMA=Fahmi
+        - NIM=251572010001
+        - PRODI=Sistem Informasi # Silakan sesuaikan jika prodi Anda berbeda
+        - KAMPUS=Institut Teknologi # Silakan ganti dengan nama kampus Anda
+        - MINAT=Cloud Computing dan Jaringan
+        - ALASAN=Saya memilih IT karena teknologi merupakan masa depan dan memiliki prospek karir yang luas. # Silakan sesuaikan kalimatnya
+        - CITA=Menjadi seorang Cloud Engineer atau DevOps Engineer yang handal. # Silakan sesuaikan kalimatnya
+    container_name: web-profil-fahmi
+    ports:
+      # Port host : Port container (Nginx berjalan di port 80).
+      # Pastikan port host (misal 8193) tidak bentrok dengan anggota kelompok lain.
+      - "8193:80"
